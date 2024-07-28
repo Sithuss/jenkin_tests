@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                bat 'mvn clean install -U -DskipTests' 
+                sh 'mvn clean install -U -DskipTests' 
             }
         }
       stage('Deliver') { 
             steps {
-                bat './jenkins/scripts/deliver.sh' 
+                sh './jenkins/scripts/deliver.sh' 
             }
         }
     }
