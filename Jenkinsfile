@@ -9,10 +9,13 @@ pipeline {
                 sh 'mvn clean install -U -DskipTests' 
             }
         }
-      stage('Deliver') { 
-            steps {
-                sh './jenkins/scripts/deliver.sh' 
-            }
-        }
+      post {
+       success {
+        echo "build succeeded :)"
+       }
+       failure {
+        echo "build failed :("
+       }
+      }
     }
 }
