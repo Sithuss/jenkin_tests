@@ -9,13 +9,13 @@ pipeline {
                 sh 'mvn clean install -U -DskipTests' 
             }
         }
-      post {
+    }
+    post {
        success {
-        echo "build succeeded :)"
+            echo "build succeeded :)"
        }
        failure {
-        echo "build failed :("
+            echo "build failed :("
        }
-      }
     }
 }
